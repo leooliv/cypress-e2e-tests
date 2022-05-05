@@ -21,10 +21,45 @@ describe('E2E Tests', () => {
         cy.get('#btn_two').click().should('not.be.visible')
         cy.wait(1000)
         cy.get('#btn_link').click().should('not.be.visible')
-        
-
-
+    
     });
+
+    it('Click the buttons in IFRAME', () => {
+
+        cy.get('#iframe_panel_body > iframe')
+          .scrollIntoView().its('0.contentDocument.body')
+          .find('#btn_one').click().should('not.be.visible')
+
+        cy.wait(1000)
+
+        cy.get('#iframe_panel_body > iframe')
+          .its('0.contentDocument.body')
+          .find('#btn_two').click().should('not.be.visible')
+          
+        cy.wait(1000)
+
+        cy.get('#iframe_panel_body > iframe')
+          .its('0.contentDocument.body')
+          .find('#btn_link').click().should('not.be.visible')
+        
+        
+    })
+
+      it('Preencher, clicar, checar, selecionar e validar presença', () => {
+
+        cy.get('#panel_test_two').find('#first_name')
+          .type('Nome Teste').should('have.value', 'Nome Teste')
+
+        cy.get('#btn_one').click().should('not.be.visible')
+
+        cy.get('#opt_three').check()
+
+        cy.get('#select_box').select('ExampleTwo')
+          .should('have.value', 'option_two')
+
+        cy.get('[alt="selenium"]').should('be.visible')
+
+      })
 
     
 })
