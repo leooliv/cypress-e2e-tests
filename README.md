@@ -3,6 +3,7 @@ Webjump test
 
 Ferramentas utilizadas:
   - Node.js Version (14.17.3)
+  - NPM version 6.14.13
   - Cypress 9.6.0
 
 * Para rodar os testes é simples, apenas garanta que tenha instalado o pacote npm no seu sistema
